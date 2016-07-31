@@ -6,8 +6,11 @@ ruby '2.3.1'
 gem 'slack-ruby-bot'
 gem 'celluloid-io'
 
-group :test do
+group :test, :development do
   gem 'rspec'
+  gem 'rack-test'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
