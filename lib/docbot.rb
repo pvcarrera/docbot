@@ -2,7 +2,7 @@ require 'slack-ruby-bot'
 require 'doc/ruby'
 
 class Docbot < SlackRubyBot::Bot
-  match(/hello/) do |client, data, _match|
+  match(/hello|hi|hey/i) do |client, data, _match|
     client.say(text: "Hello <@#{data.user}>", channel: data.channel)
   end
 

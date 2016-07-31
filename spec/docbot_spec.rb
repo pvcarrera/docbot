@@ -6,8 +6,10 @@ RSpec.describe Docbot do
 
   it_should_behave_like 'a slack ruby bot'
 
-  it 'responds like a teenager' do
-    expect(message: 'hello').to respond_with_slack_message 'Hello <@user>'
+  %w(hi Hi Hello hello Hey HEY).each do |greeting|
+    it "responds to #{greeting}" do
+      expect(message: greeting).to respond_with_slack_message 'Hello <@user>'
+    end
   end
 
   context 'when user sends a ri command' do
