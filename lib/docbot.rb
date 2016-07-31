@@ -8,6 +8,6 @@ class Docbot < SlackRubyBot::Bot
 
   match(/^ri\s+(?<query>.+)\s*$/) do |client, data, match|
     ruby_doc = Doc::Ruby.for(match[:query])
-    client.say(text: ruby_doc.raw, channel: data.channel)
+    client.say(text: ruby_doc.to_markdown, channel: data.channel)
   end
 end

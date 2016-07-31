@@ -13,7 +13,7 @@ RSpec.describe Docbot do
   context 'when user sends a ri command' do
     let(:message) { 'ri Array#first' }
     let(:doc_string) { 'Result form ruby docs' }
-    let(:ruby_doc) { instance_double(Doc::Ruby, raw: doc_string) }
+    let(:ruby_doc) { instance_double(Doc::Ruby, to_markdown: doc_string) }
 
     before do
       allow(Doc::Ruby).to receive(:for).with('Array#first').and_return(ruby_doc)
