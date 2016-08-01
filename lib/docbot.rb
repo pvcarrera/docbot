@@ -1,6 +1,8 @@
 require 'slack-ruby-bot'
 require 'doc/ruby'
 
+# Slack bot instance. Parses the users' messages and sends messages back to the chat channel.
+# @see SalckRubyBot::Bot
 class Docbot < SlackRubyBot::Bot
   match(/hello|hi|hey/i) do |client, data, _match|
     client.say(text: "Hello <@#{data.user}>", channel: data.channel)
